@@ -12,10 +12,10 @@ namespace CleanArchitecture.Persistence.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
+        //Contexto do banco via injeção de dependência
         protected readonly AppDbContext Context;
         public BaseRepository(AppDbContext context) 
         {
-            //Contexto do banco via injeção de dependência
             Context = context;
         }
 
