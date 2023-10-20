@@ -20,8 +20,10 @@ namespace CleanArchitecture.Persistence
             var connectionString = string.Empty;
             bool isConnectionProd = Convert.ToBoolean(configuration.GetSection("AppSettings").GetSection("IsConnectionProd").Value);
 
-            if (!isConnectionProd) connectionString = configuration.GetConnectionString("SqlConnectionHomologacao");
-            else connectionString = configuration.GetConnectionString("SqlConnectionProducao");
+            if (!isConnectionProd) 
+                connectionString = configuration.GetConnectionString("SqlConnectionHomologacao");
+            else 
+                connectionString = configuration.GetConnectionString("SqlConnectionProducao");
 
             services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(connectionString));
 
